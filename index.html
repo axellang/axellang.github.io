@@ -1,84 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <title>Axel</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
-    </head>
 
-    <body>
-        <nav class="light-blue ligten-1" role="navigation">
-            <div class="nav-wrapper container">
-                <a class="brand-logo" href="#">Axel</a>
-            </div>
-        </nav>
+<head>
+    <meta charset="utf-8">
+    <title>Axel</title>
 
-        <div class="section no-pad-bot">
-            <div class="container">
-                <h1 class="header center orange-text">Axel</h1>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
 
-                <div class="row center">
-                    <h5 class="header col s12 light">Haskell + Lisp</h5>
-                </div>
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-                <div class="row center">
-                    <a class="btn-large waves-effect waves-light orange" href="#">Get Started</a>
-                </div>
-            </div>
+    <link rel="stylesheet" href="./js/vendor/highlight/styles/atelier-cave-light.css">
+
+    <link rel="stylesheet" href="./css/style.css">
+
+    <style>
+        .logo {
+            color: #685790;
+            font-family: 'Audiowide';
+        }
+
+        .logo-image {
+            height: 1.1em;
+            position: relative;
+            top: 3px;
+            vertical-align: text-top;
+        }
+
+        .logo-purple {
+            color: #685790;
+        }
+
+        .tagline {
+            font-size: 1.3rem;
+            line-height: 1.5em;
+        }
+
+        .tagline-emphasized {
+            font-style: italic;
+            padding-left: 0.1em;
+            padding-right: 0.2em;
+        }
+    </style>
+</head>
+
+<body>
+    <nav role="navigation">
+        <div class="nav-wrapper container">
+            <a class="brand-logo left" href="./index.html">A )( E L</a>
+
+            <ul id="nav-mobile" class="right">
+                <li><a href="https://www.github.com/axellang/axel/wiki">Documentation</a></li>
+
+                <li><a href="https://www.github.com/axellang/axel">GitHub</a></li>
+            </ul>
         </div>
+    </nav>
 
+    <div class="section no-pad-bot">
         <div class="container">
-            <div class="section">
-                <div class="row">
-                    <p>Axel combines the best part of Haskell – its semantics – with Lisp's killer feature: an expressive, easy-to-use macro system.</p>
+            <div class="col l12">
+                <h1 class="center">
+                    <div class="logo">A<img class="logo-image" src="./img/logo.svg" />E L</div>
+                </h1>
+            </div>
+
+            <div class="row">
+                <div class="col l6 s12">
+                    <div class="row center">
+                        <h4 class="col s12" style="margin-top: 1.5em;">Haskell + Lisp</h5>
+                            <h5 class="col s12 tagline">Haskell's semantics, plus Lisp's macros.
+                                <br/> Meet Axel: a purely functional, extensible, and
+                                <span class="tagline-emphasized">powerful</span> programming language.</h4>
+                    </div>
+
+                    <div class="row center">
+                        <a class="btn-large waves-effect waves-light" href="#">Get Started</a>
+                    </div>
                 </div>
 
-                <div class="row">
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text">
-                                <i class="material-icons">flash_on</i>
-                            </h2>
+                <div class="col l6 s12">
+                    <pre><code class="lisp">;; `LambdaCase` as a macro, in 5 lines of code
+(defmacro fn-case
+    ((cases) (fmap (fn (varId)
+                        (list `(fn (,varId)
+                                (case ,varId ,@cases))))
+                    gensym)))
 
-                            <h5 class="center">Column 1</h5>
+(= main (IO Unit)
+    (() ((fn-case
+            (True (putStrLn "🎉"))
+            (_ (putStrLn "Impossible!")))
+        True)))
 
-                            <p class="light">
-                                Column 1
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text">
-                                <i class="material-icons">flash_on</i>
-                            </h2>
-
-                            <h5 class="center">Column 2</h5>
-
-                            <p class="light">
-                                Column 2
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col s12 m4">
-                        <div class="icon-block">
-                            <h2 class="center light-blue-text">
-                                <i class="material-icons">flash_on</i>
-                            </h2>
-
-                            <h5 class="center">Column 3</h5>
-
-                            <p class="light">
-                                Column 3
-                            </p>
-                        </div>
-                    </div>
+;;=> 🎉</code></pre>
                 </div>
             </div>
         </div>
+    </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-    </body>
+    <div class="section">
+        <div class="container">
+            <hr/>
+
+            <h2 class="center logo-purple">Features</h2>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <h2 class="center">
+                        Extensibility
+                    </h2>
+
+                    <p>
+                        With Axel, there's no need to rely on hard-coded compiler extensions to unlock the language's syntax. Everything from Axel's
+                        <code class="haskell">do</code>-notation to list comprehensions are just macros, on the same level as those you'll imagine yourself.
+                    </p>
+
+                    <p>
+                        <code class="lisp">(defmacro backwards ((forms) (reverse forms)))</code><br/>
+                        <code class="lisp">(backwards 42 print) ;;=> (print 42)</code>
+                    </p>
+                </div>
+
+                <div class="col s12 m6">
+                    <h2 class="center">
+                        Ease-of-Use
+                    </h2>
+
+                    <p>
+                        Macro definitions are compact, since Axel code can be easily converted into its corresponding AST. Just prefix an expression with one of the quotation operators to convert it into its abstract representation.
+                    </p>
+
+                    <p>
+                        <code class="lisp">(+ 1 2) ;;=> 3</code><br/>
+                        <code class="lisp">'(+ 1 2) ;;=> (SExpression (list (LiteralInt 1) (LiteralInt 2)))</code>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row center" style="margin-top: 3em;">
+                <h4>
+                    If you know Haskell, you already know Axel.
+                </h4>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+
+    <script src="./js/vendor/highlight/highlight.pack.js"></script>
+
+    <script type="text/javascript">
+        hljs.initHighlightingOnLoad();
+    </script>
+</body>
+
 </html>

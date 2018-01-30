@@ -1,0 +1,23 @@
+/* Utilities */
+.valign-middle {
+    vertical-align: middle;
+}
+
+/* Styles */
+body {
+    background-color: #F3F3F3;
+    font-family: 'Open Sans', Roboto, sans-serif;
+}
+
+nav {
+    background-color: #685790;
+    color: #F3F3F3;
+}
+
+.brand-logo {
+    font-family: 'Audiowide';
+}
+
+.btn-large {
+    background-color: #685790 !important;
+}
