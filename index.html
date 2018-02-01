@@ -129,7 +129,7 @@
 
                     <p>
                         <code class="lisp">(defmacro backwards ((forms) (reverse forms)))</code><br/>
-                        <code class="lisp">(backwards 42 print) ;;=> (print 42)</code>
+                        <code class="lisp">(backwards 42 print) -- (print 42)</code>
                     </p>
                 </div>
 
@@ -143,8 +143,8 @@
                     </p>
 
                     <p>
-                        <code class="lisp">(+ 1 2) ;;=> 3</code><br/>
-                        <code class="lisp">'(+ 1 2) ;;=> (SExpression (list (LiteralInt 1) (LiteralInt 2)))</code>
+                        <code class="lisp">(+ 1 2) -- 3</code><br/>
+                        <code class="lisp">'(+ 1 2) -- (SExpression [(LiteralInt 1) (LiteralInt 2)])</code>
                     </p>
                 </div>
             </div>
