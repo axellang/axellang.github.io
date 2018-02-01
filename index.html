@@ -12,8 +12,6 @@
     <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
-    <link rel="stylesheet" href="./js/vendor/highlight/styles/atelier-cave-light.css">
-
     <link rel="stylesheet" href="./css/style.css">
 
     <style>
@@ -93,7 +91,7 @@
                 </div>
 
                 <div class="col l6 s12">
-                    <pre><code class="lisp">-- `LambdaCase` as a macro, in 5 lines of code
+                    <pre><code class="lisp">-- `LambdaCase` as a macro, in five lines of code
 (defmacro \case
   ((cases) (fmap (fn (varId)
                      (list `(fn (,varId)
