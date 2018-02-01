@@ -95,16 +95,16 @@
                 <div class="col l6 s12">
                     <pre><code class="lisp">-- `LambdaCase` as a macro, in 5 lines of code
 (defmacro \case
-    ((cases) (fmap (fn (varId)
-                        (list `(fn (,varId)
+  ((cases) (fmap (fn (varId)
+                     (list `(fn (,varId)
                                 (case ,varId ,@cases))))
-                    gensym)))
+                 gensym)))
 
 (= main (IO Unit)
-    (() ((\case
-           (True (putStrLn "🎉"))
-           (_ (putStrLn "Impossible!")))
-        True)))
+  () ((\case
+        (True (putStrLn "🎉"))
+        (_ (putStrLn "Impossible!")))
+      True)))
 
 -- 🎉</code></pre>
                 </div>
