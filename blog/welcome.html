@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Axel</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Audiowide" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <link rel="stylesheet" href="../js/vendor/highlight/styles/atelier-cave-light.css">
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .author-name {
+            font-size: 1.3em;
+        }
+
+        .headline {
+            margin-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav role="navigation">
+        <div class="nav-wrapper container">
+            <a class="brand-logo left" href="../index.html">A )( E L</a>
+
+            <ul id="nav-mobile" class="right">
+                <li><a href="https://www.github.com/axellang/axel/wiki">Documentation</a></li>
+
+                <li><a href="https://www.github.com/axellang/axel">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="section">
+        <div class="container">
+            <div class="headline">
+                <h1>Welcome to Axel!</h1>
+
+                <h6 class="author-name">Joshua Grosso</h6>
+            </div>
+
+            <div>
+                <p>
+                    Axel aims to combine the semantics of Haskell, the syntax of Lisp, and the ecosystem of the JVM/Node/etc.
+                </p>
+
+                <p>
+                    Regarding a combination of Haskell and Lisp, I was inspired by the awesome Hackett project, which implements Haskell on top of Racket, since I'd always wanted to try Lisp but kept running back to Haskell and the experience of programming in its incredible type system. However, since Hackett is inherently tied to the Racket ecosystem, it wasn't <i>quite</i> was I was looking for.
+                </p>
+
+                <p>
+                    Lisp on the JVM/Node is nicely solved by Clojure(Script), but I'd hate to have to give up Haskell's semantics. Haskell on the JVM/Node, on the other hand, has been conquered by Eta and PureScript (for example), but their non-Lispiness stands.
+                </p>
+
+                <p>
+                    So, I started by imagining what a Lisp built on top of Haskell would look like. My brief forays into Template Haskell had originally made me hungry for a simpler Haskell macro system (even if that meant trading type safety for ease-of-use), and Lisp's fit the bill. I love the minimalistic elegance of Haskell's syntax, and Lisp's virtual lack of syntax seemed to take that approach to its logical conclusion.
+                </p>
+
+                <p>
+                    Basically, Axel was born to fill a hole that I kept finding myself wishing for. It stays close to its Haskell roots &ndash; most Haskell code can be easily converted into its equivalent Axel representation &ndash; but sports a Common Lisp-esque macro system that allows for incredible syntactic flexibility. Many GHC language extensions (such as <code>LambdaCase</code> or <code>ApplicativeDo</code>), which would otherwise be built-in to the compiler, can instead be implemented as macros. Even Axel's <code class="haskell">do</code>-notation is nothing more than a standard library macro!
+                </p>
+
+                <p>
+                    Axel is still in its infancy (having just exited the proof-of-concept stage), and a basic roadmap can be found <a href="https://github.com/axellang/axel/issues/1">here</a>. The goal I'm most excited about is creating backends other than Haskell, as tapping into larger ecosystems than Haskell's has always been one of Axel's overarching goals. The Haskell backend is the first step on this journey (mainly because I'm less familiar with PureScript or Eta), and as a result, bootstraping the Axel transpiler to use Axel rather than Haskell might happen relatively soon. However, I'm keeping sight of the plan to target PureScript (i.e. Node) and Eta (i.e. the JVM), because I personally believe they their easy access to huge ecosystems, while retaining Haskell's focus on purity, provides them with significant advantages. And in the case of PureScript, for example, Axel will be able to add metaprogramming facilities to a language that does not have such capabilities of its own.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
+

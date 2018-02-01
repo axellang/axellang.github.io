@@ -9,6 +9,10 @@ body {
     font-family: 'Open Sans', Roboto, sans-serif;
 }
 
+p {
+    font-size: 1.2em;
+}
+
 nav {
     background-color: #685790;
     color: #F3F3F3;
