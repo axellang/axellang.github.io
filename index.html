@@ -93,10 +93,9 @@
                 <div class="col l6 s12">
                     <pre><code>-- `LambdaCase` as a macro, in five lines of code
 (defmacro fnCase
-  ((cases) (fmap (fn (varId)
-                   [`(fn (~varId)
-                       (case ~varId ~@cases))])
-                 AST.gensym)))
+    ((cases) (<$> (\ (varId)
+                    [`(\ (~varId) (case ~varId ~@cases))])
+                  AST.gensym)))
 
 (= main (IO Unit)
    (() ((fnCase
