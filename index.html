@@ -91,17 +91,19 @@
                 </div>
 
                 <div class="col l6 s12">
-                    <pre><code>-- `LambdaCase` as a macro, in five lines of code
-(defmacro fnCase
-    ((cases) (<$> (\ (varId)
-                    [`(\ (~varId) (case ~varId ~@cases))])
-                  AST.gensym)))
 
-(= main (IO Unit)
-   (() ((fnCase
-         ("tada" (putStrLn "🎉"))
-         (_ (putStrLn "Impossible!")))
-        "tada")))
+                    <pre><code>-- `LambdaCase` as a macro, in five lines of code
+(macro fnCase (cases)
+       (<$> (\ (varId)
+             [`(\ (~varId) (case ~varId ~@cases))])
+            AST.gensym))
+
+(def main (IO Unit)
+  (() (putStrLn
+        ((fnCase
+          ("tada" "🎉")
+          (_ "Impossible!"))
+         "tada"))))
 
 -- 🎉</code></pre>
                 </div>
