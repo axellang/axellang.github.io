@@ -93,14 +93,15 @@
                 <div class="col l6 s12">
 
                     <pre><code>-- `LambdaCase` as a macro, in five lines of code
-(macro fnCase (cases)
-       (<$> (\ (varId)
-             [`(\ (~varId) (case ~varId ~@cases))])
-            AST.gensym))
+(defmacro \case
+    (cases
+     (<$> (\ (varId)
+           [`(\ (~varId) (case ~varId ~@cases))])
+          gensym)))
 
 (def main (IO Unit)
   (() (putStrLn
-        ((fnCase
+        ((\case
           ("tada" "🎉")
           (_ "Impossible!"))
          "tada"))))
@@ -129,7 +130,7 @@
                     </p>
 
                     <p>
-                        <code>(defmacro backwards ((forms) (reverse forms)))</code><br/>
+                        <code>(defmacro backwards (forms (reverse forms)))</code><br/>
                         <code>(backwards 42 print) -- (print 42)</code>
                     </p>
                 </div>
@@ -145,7 +146,7 @@
 
                     <p>
                         <code>(+ 1 2) -- 3</code><br/>
-                        <code>'(+ 1 2) -- (AST.SExpression [(AST.LiteralInt 1) (AST.LiteralInt 2)])</code>
+                        <code>'(+ 1 2) -- (AST.SExpression &lt;metadata&rt; [(AST.LiteralInt &lt;metadata&rt; 1) (AST.LiteralInt &lt;metadata&rt; 2)])</code>
                     </p>
                 </div>
             </div>
