@@ -95,9 +95,8 @@
                     <pre><code>-- `LambdaCase` as a macro, in five lines of code
 (defmacro \case
     (cases
-     (<$> (\ (varId)
-           [`(\ (~varId) (case ~varId ~@cases))])
-          gensym)))
+     (do' (<- varId gensym)
+          (pure [`(\ (~varId) (case ~varId ~@cases))]))))
 
 (def main (IO Unit)
   (() (putStrLn
