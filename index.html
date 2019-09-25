@@ -92,11 +92,12 @@
 
                 <div class="col l6 s12">
 
-                    <pre><code>-- `LambdaCase` as a macro, in five lines of code
+                    <pre><code>-- `LambdaCase` as a macro, in five lines
 (defmacro \case
     (cases
      (do' (<- varId gensym)
-          (pure [`(\ (~varId) (case ~varId ~@cases))]))))
+          (pure [`(\ (~varId)
+                     (case ~varId ~@cases))]))))
 
 (def main (IO Unit)
   (() (putStrLn
