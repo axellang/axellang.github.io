@@ -94,16 +94,15 @@
 
                     <pre><code>-- `LambdaCase` as a macro, in five lines
 (defmacro \case
-    (cases
-     (do' (<- varId gensym)
-          (pure [`(\ (~varId)
-                     (case ~varId ~@cases))]))))
+  (cases
+     (do {varId <- gensym}
+         (pure [`(\ (~varId)
+                    (case ~varId ~@cases))]))))
 
 (def main (IO Unit)
   (() (putStrLn
-        ((\case
-          ("tada" "🎉")
-          (_ "Impossible!"))
+        ((\case ("tada" "🎉")
+                (_ "Impossible!"))
          "tada"))))
 
 -- 🎉</code></pre>
