@@ -94,19 +94,20 @@
 
                 <div class="col l6 s12">
 
-                    <pre><code>-- `LambdaCase` as a macro, in five lines
+                    <pre><code>
+(module Example)
+
+-- `LambdaCase` as a macro
 (defmacro \case
   (cases
-     (do {varId <- gensym}
-         (pure [`(\ (~varId)
-                    (case ~varId ~@cases))]))))
+    (do (<- varId gensym)
+        (pure [`(\ [~varId]
+                   (case ~varId ~@cases))]))))
 
-(def main (IO Unit)
-  (() (putStrLn
-        ((\case ("tada" "🎉")
-                (_ "Impossible!"))
-         "tada"))))
-
+(= main
+  (putStrLn
+    ((\case ("tada" "🎉"))
+     "tada")))
 -- 🎉</code></pre>
                 </div>
             </div>
